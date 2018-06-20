@@ -4,9 +4,9 @@ import curses, time
 #    ╔╗
 #    ╚╝  
 
-ball = {"x":10, "y":10, "m_x":1, "m_y":-1}#sol ust
-size_x = 30
-size_y = 20
+ball = {"x":10, "y":10, "m_x":2, "m_y":2}#sol ust
+size_x = 50
+size_y = 30
 pos_x = 1
 pos_y = 1
 fps = 35
@@ -22,10 +22,10 @@ def loop(obj):
     while 1:
         box.clear()
         box.border(0)
-        box.addstr(1, 12, "FPS: {}".format(str(fps)))
+        box.addstr(1, int(size_x/2) - 3, "FPS: {}".format(str(fps)))
         box.addstr(ball["y"], ball["x"], "XX")
         box.addstr(ball["y"] + 1, ball["x"], "XX")
-        box.addstr(19, 1, "x:{}, y:{}, m_x:{}, m_y:{}".format(str(ball["x"]), str(ball["y"]), str(ball["m_x"]), str(ball["m_y"]))) 
+        box.addstr(size_y-1, 1, "x:{}, y:{}, m_x:{}, m_y:{}".format(str(ball["x"]), str(ball["y"]), str(ball["m_x"]), str(ball["m_y"]))) 
         box.refresh()
         time.sleep(1/fps)
         obj.move()
